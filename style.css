@@ -8,6 +8,7 @@ html, body{
   color: #e6e7e8;
   text-align: center;
   font-family: 'IBM Plex Mono', monospace;
+  position: relative;
 }
 
 body{
@@ -16,7 +17,6 @@ body{
   justify-content: center;
   align-items: center;
   height: 100vh;
-  margin: -20px 0 50px;
 }
 
 p{
@@ -39,8 +39,9 @@ a{
   background-color: #e6e7e8;
   color: #1c1c1c;
   border-radius: 10px;
-  box-shadow: rgba(0, 0, 0, .25), rgba(0, 0, 0, .22);
+  box-shadow: 5px 10px 42px rgba(230, 231, 232, .25);
   position: relative;
+  top: -8%;
   overflow: hidden;
   width: 768px;
   max-width: 100%;
@@ -60,7 +61,6 @@ a{
   margin: 20px 0;
 }
 .social-container a{
-  border: 1px solid #1c1c1c;
   border-radius: 50%;
   display: inline-flex;
   justify-content: center;
@@ -70,11 +70,16 @@ a{
   width: 40px;
 }
 .form-container input{
-  background: #1c1c1c;
+  background: rgba(28, 28, 28, .1);
   border: none;
   padding: 12px 15px;
   margin: 8px 0;
   width: 100%;
+  font-family: 'IBM Plex Mono', monospace;
+}
+::placeholder {
+  color: #1c1c1c;
+  font-family: 'IBM Plex Mono', monospace;
 }
 button{
   border-radius: 20px;
@@ -157,4 +162,44 @@ button.ghost{
 }
 .overlay-left{
   transform: translateX(-20%);
+}
+
+/* animation */
+
+/* move signIn to the right */
+.container.right-panel-active .sign-in-container{
+  transform: translateX(100%);
+}
+
+/* move overlay to left */
+.container.right-panel-active .overlay-container{
+  transform: translateX(-100%);
+}
+
+/* bring sign up over sign in */
+.container.right-panel-active .sign-up-container{
+  transform: translateX(100%);
+  opacity: 1;
+  z-index: 5;
+}
+
+/* move overlay back to the right */
+.container.right-panel-active .overlay{
+  transform: translateX(50%);
+}
+.container.right-panel-active .overlay-left{
+  transform: translateX(0);
+}
+.container.right-panel-active .overlay-right{
+  transform: translateX(20%);
+}
+
+/* end animations */
+
+/* fix footer to bottom of page */
+footer{
+  border-top: 1px solid #D5A001;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
 }
